@@ -4,7 +4,7 @@
   "description": "This is my JavaScript Capstone project as part of my curriculum at Microverse.",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "webpack serve --open --mode development",
     "build": "webpack --mode development"
   },
@@ -22,6 +22,7 @@
   "devDependencies": {
     "css-loader": "^6.4.0",
     "html-webpack-plugin": "^5.4.0",
+    "jest": "^27.3.0",
     "style-loader": "^3.3.0",
     "webpack": "^5.58.2",
     "webpack-cli": "^4.9.1",
