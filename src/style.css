@@ -1,5 +1,12 @@
+/* stylelint-disable font-family-no-missing-generic-family-keyword */
+@font-face {
+  font-family: "Tema";
+  src: url("/assets/fonts/burnstown\ dam.ttf") format("truetype");
+}
+
 body {
   background-color: bisque;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .nav-logo {
@@ -11,8 +18,17 @@ body {
 }
 
 .card-rating {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
+}
+
+.nav-link,
+.text-muted {
+  color: rgb(49, 32, 11) !important;
+}
+
+.nav-link:hover {
+  color: rgb(5, 3, 1) !important;
 }
 
 .wrapper {
@@ -25,5 +41,26 @@ body {
 }
 
 .card-size {
-  width: 18rem;
+  width: 22rem;
+}
+
+.btn {
+  background-color: bisque;
+  color: rgb(49, 32, 11);
+}
+
+.btn:hover {
+  background-color: rgb(235, 200, 158);
+  color: rgb(32, 20, 6);
+}
+
+.card-img-top {
+  min-height: 200px;
+  max-height: 200px;
+}
+
+.title {
+  color: rgb(119, 74, 19);
+  font-family: 'Tema';
+  font-size: 6em;
 }
