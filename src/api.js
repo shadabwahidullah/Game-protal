@@ -15,6 +15,7 @@ const populate = (data) => {
         const rating = document.createElement('p');
 
         cardContainer.classList.add('card', 'card-size');
+        cardContainer.id = element.id;
 
         imageContainer.src = element.background_image;
         imageContainer.classList.add('card-img-top');
