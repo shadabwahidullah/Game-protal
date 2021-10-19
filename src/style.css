@@ -10,6 +10,10 @@ body {
     background-size: cover;
 }
 
+.card-rating {
+
+}
+
 .wrapper{
     min-height: calc(100vh - 80px);
 }
@@ -17,4 +21,8 @@ body {
 .footer-icons li a svg{
     width: 30px;
     height: 30px;
+}
+
+.card-size {
+    width: 18rem;
 }
