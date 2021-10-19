@@ -1,0 +1,29 @@
+body {
+  background-color: bisque;
+}
+
+.nav-logo {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-image: url('../assets/images/logo.jpg');
+  background-size: cover;
+}
+
+.card-rating {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.wrapper {
+  min-height: calc(100vh - 80px);
+}
+
+.footer-icons li a svg {
+  width: 30px;
+  height: 30px;
+}
+
+.card-size {
+  width: 18rem;
+}
