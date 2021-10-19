@@ -9,3 +9,12 @@ body {
     background-image: url('../assets/images/logo.jpg');
     background-size: cover;
 }
+
+.wrapper{
+    min-height: calc(100vh - 80px);
+}
+
+.footer-icons li a svg{
+    width: 30px;
+    height: 30px;
+}
