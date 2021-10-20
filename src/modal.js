@@ -17,30 +17,31 @@ function getGenres(genres) {
 }
 
 async function createModal(id) {
-  
+
   document.getElementById('scrollableModal').style.display = 'block';
   const gameUrl = `${url}/${id}?key=${key}`;
   const game = await getData(gameUrl);
 
   const modalImage = document.getElementById("modalImage");
   modalImage.src = game.background_image;
-  const modalBody = document.querySelector(".modal-body");
+  const modalDetails = document.getElementById('modal-details');
+  modalDetails.innerHTML = "";
 
-  const modalTitle = document.createElement("h2");
-  modalTitle.classList.add("text-center");
+  const modalTitle = document.createElement('h2');
+  modalTitle.classList.add('text-center','py-3');
   modalTitle.innerHTML = game.name_original;
 
-  const modalGenre = document.createElement("p");
-  modalGenre.classList.add("fs-4", "m-0", "col-md-6");
+  const modalGenre = document.createElement('p');
+  modalGenre.classList.add('fs-5', 'm-0', 'col-md-6');
   modalGenre.innerHTML = `<strong>Genre/s: </strong> ${getGenres(game.genres)}`;
 
-  const modalRating = document.createElement("p");
-  modalRating.classList.add("fs-4", "m-0", "col-md-6");
-  modalRating.innerHTML = `<strong>Rating: </strong> ${game.rating} / 5 of ${game.ratings_count} reviews`;
+  const modalRating = document.createElement('p');
+  modalRating.classList.add('fs-5', 'm-0', 'col-md-6');
+  modalRating.innerHTML = `<strong>Rating: </strong> ${game.rating}/5 of ${game.ratings_count} reviews`;
 
-  const modalWebsite = document.createElement("a");
-  modalWebsite.innerHTML = "<strong>Website: </strong>click here";
-  modalWebsite.classList.add("fs-4", "text-decoration-none", "text-dark");
+  const modalWebsite = document.createElement('a');
+  modalWebsite.innerHTML = '<strong>Website: </strong>click here';
+  modalWebsite.classList.add('fs-5', 'text-decoration-none', 'text-dark');
   modalWebsite.href = game.website;
 
   const modalDesc = document.createElement("p");
@@ -54,7 +55,7 @@ async function createModal(id) {
     document.querySelector(".modal").style.display = "none";
   });
 
-  modalBody.append(
+  modalDetails.append(
     modalTitle,
     modalGenre,
     modalRating,
