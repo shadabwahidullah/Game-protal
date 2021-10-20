@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: {
     api: './src/api.js',
+    modal: './src/modal.js',
   },
   devServer: {
     static: './dist',

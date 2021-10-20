@@ -15,6 +15,14 @@ body {
   font-weight: bold;
 }
 
+#scrollableModal{
+  background: rgba(255, 228, 196, 0.8);
+}
+
+.modalImage{
+  min-width: 200px;
+  min-height: 200px;
+}
 .wrapper {
   min-height: calc(100vh - 80px);
 }
