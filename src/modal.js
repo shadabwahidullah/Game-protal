@@ -68,4 +68,4 @@ async function createModal(id) {
   );
 }
 
-export default { createModal };
+export { createModal as default};
