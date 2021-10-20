@@ -11,7 +11,17 @@
       crossorigin="anonymous"
     />
 </head>
-<body >
+<body id="body">
+  <div class="modal fade show" id="scrollableModal" tabindex="-1" aria-modal="true" role="dialog">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl modal-fullscreen-sm-down">
+      <div class="modal-content">
+        <button id="modalClose" type="button" class="btn-close align-self-end p-3" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="container modal-body row justify-content-center px-5">
+          <img id="modalImage" src="#" class="modalImage align-self-center py-3" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="wrapper">
     <nav class="navbar navbar-expand-lg navbar-light bg-light opacity-50">
         <div class="container-fluid d-flex mx-5">
