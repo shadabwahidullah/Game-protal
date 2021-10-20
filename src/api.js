@@ -11,6 +11,7 @@ const involvmentUrl = 'https://us-central1-involvement-api.cloudfunctions.net/ca
 const previous = document.getElementById('previous');
 const next = document.getElementById('next');
 const involvmentKey = 'vAUByXh5uun5dFWwLARx';
+const count = document.getElementById('counter');
 
 const createLike = async (id) => {
   await fetch(`${involvmentUrl}${involvmentKey}/likes/`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ item_id: id }) }).then((response) => response);
@@ -31,6 +32,7 @@ const populate = (data) => {
     const rlcontainer = document.createElement('div');
 
     cardContainer.classList.add('card', 'card-size', 'm-3', 'col-lg-3', 'col-md-6', 'col-xs-12', 'shadow');
+    cardContainer.id = 'game-container';
 
     imageContainer.src = element.background_image;
     imageContainer.classList.add('card-img-top', 'mt-3');
@@ -74,6 +76,8 @@ const populate = (data) => {
     });
   });
   getLikes();
+  const games = document.querySelectorAll('div[id=game-container]');
+  counter(games);
 };
 
 const populateLikes = (data) => {
@@ -83,6 +87,15 @@ const populateLikes = (data) => {
   });
 };
 
+const counter = (games) => {
+  var counter = 0;
+  games.forEach((element) => {
+    counter += 1
+  });
+  count.innerHTML = `Displaying ${counter} Games!`;
+  return counter;
+};
+
 const getData = async (url) => {
   try {
     const response = await fetch(url);
@@ -90,7 +103,7 @@ const getData = async (url) => {
     populate(data.results);
     return data.results;
   } catch (error) {
-    return error.text();
+    return error;
   }
 };
 
