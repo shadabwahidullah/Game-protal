@@ -13,13 +13,12 @@
 </head>
 <body id="body">
   <div class="modal fade show" id="scrollableModal" tabindex="-1" aria-labelledby="exampleModalScrollableTitle" style="display: block;" aria-modal="true" role="dialog">
-    <div class="modal-dialog modal-dialog-scrollable modal-xl">
-      <div class="modal-content justify-content-between">
-        <button type="button" class="btn-close align-self-end" data-bs-dismiss="modal" aria-label="Close"></button>
-        <img src="" class="modalImage" alt="">
-        <div class="modal-body">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl modal-fullscreen-sm-down">
+      <div class="modal-content">
+        <button id="modalClose" type="button" class="btn-close align-self-end p-3" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="container modal-body row justify-content-center px-5">
+          <img id="modalImage" src="" class="modalImage align-self-center py-3" alt="">
           <button id="test">click here</button>
-
         </div>
       </div>
     </div>

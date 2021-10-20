@@ -4,42 +4,50 @@ const url = `https://api.rawg.io/api/games`;
 const test = document.getElementById("test");
 
 test.addEventListener("click", () => {
-  console.log("clicked");
   createModal(3498);
 });
 
 async function createModal(id) {
   const gameUrl = url + `/${id}?key=${key}`;
   const game = await getData(gameUrl);
-  console.log(game);
 
-  const modalBody = document.querySelector('.modal-body');
+  const modalImage = document.getElementById("modalImage");
+  modalImage.src = game.background_image;
+  const modalBody = document.querySelector(".modal-body");
 
   const modalTitle = document.createElement("h2");
+  modalTitle.classList.add("text-center");
   modalTitle.innerHTML = game.name_original;
 
-  const modalGenre = document.createElement("h2");
-  modalGenre.innerHTML = game.genres.toString();
+  const modalGenre = document.createElement("p");
+  modalGenre.classList.add("fs-4", "m-0",'col-md-6');
+  modalGenre.innerHTML = `<strong>Genre/s: </strong> ${getGenres(game.genres)}`;
 
-  const modalWebsite = document.createElement("h2");
-  modalWebsite.innerHTML = game.website;
+  const modalRating = document.createElement("p");
+  modalRating.classList.add("fs-4", "m-0", 'col-md-6');
+  modalRating.innerHTML = `<strong>Rating: </strong> ${game.rating} / 5 of ${game.ratings_count} reviews`;
 
-  const modalRating = document.createElement("h2");
-  modalRating.innerHTML = `${game.rating / game.rating_count}`;
+  const modalWebsite = document.createElement("a");
+  modalWebsite.innerHTML = `<strong>Website: </strong>click here`;
+  modalWebsite.classList.add("fs-4", "text-decoration-none", "text-dark");
+  modalWebsite.href = game.website;
 
   const modalDesc = document.createElement("p");
-  modalDesc.innerText = game.description;
+  modalDesc.classList.add('my-3')
+  modalDesc.innerHTML = `<strong>Reddit description: </strong> ${game.reddit_description.substring(3)}`;
 
-  modalBody.append(modalTitle,modalGenre,modalWebsite,modalRating,modalDesc);
+  const closeButton = document.getElementById('modalClose');
+  closeButton.addEventListener('click',() => {
+    document.querySelector('.modal').style.display = "none";
+  })
 
-  // game.id
-  // game.name_original
-  // game.description
-  // game.background_image
-  // game.website
-  // game.rating
-  // game.rating_count
-  // game.genre // array
+  modalBody.append(
+    modalTitle,
+    modalGenre,
+    modalRating,
+    modalWebsite,
+    modalDesc
+  );
 }
 
 const getData = async (gameUrl) => {
@@ -47,3 +55,12 @@ const getData = async (gameUrl) => {
   const data = await response.json();
   return data;
 };
+
+function getGenres(genres) {
+  let appendedGenres = "";
+  genres.forEach((element) => {
+    appendedGenres += element.name + ", ";
+  });
+  appendedGenres = appendedGenres.slice(0, -2);
+  return appendedGenres;
+}

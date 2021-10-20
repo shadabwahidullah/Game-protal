@@ -20,8 +20,9 @@ body {
 }
 
 .modalImage{
-  min-width: 200px;
-  min-height: 200px;
+  max-width: 600px;
+  height: auto;
+
 }
 .wrapper {
   min-height: calc(100vh - 80px);
