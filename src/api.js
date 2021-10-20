@@ -1,6 +1,7 @@
 /* eslint-disable no-use-before-define */
 import fetch from 'cross-fetch';
 import './style.css';
+import createModal from './modal.js';
 
 const key = '4367d242d87843ddb5e0a8cc46a359d5';
 const quantity = 32;
@@ -60,6 +61,10 @@ const populate = (data) => {
 
     commentButton.classList.add('btn', 'btn-warning', 'fw-bold', 'fs-5');
     commentButton.innerHTML = 'Comments';
+    commentButton.id = element.id;
+    commentButton.addEventListener('click', (e) => {
+      createModal(e.target.id);
+    });
 
     rlcontainer.append(rating, likes);
 
@@ -88,9 +93,9 @@ const populateLikes = (data) => {
 };
 
 const counter = (games) => {
-  var counter = 0;
-  games.forEach((element) => {
-    counter += 1
+  let counter = 0;
+  games.forEach(() => {
+    counter += 1;
   });
   count.innerHTML = `Displaying ${counter} Games!`;
   return counter;
