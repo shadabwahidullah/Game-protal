@@ -49,7 +49,7 @@ async function createModal(id) {
 
   const modalDesc = document.createElement("p");
   modalDesc.classList.add("my-3");
-  modalDesc.innerHTML = `<strong>Reddit description: </strong> ${game.description.substring(
+  modalDesc.innerHTML = `<strong>Description: </strong> ${game.description.substring(
     3
   )}`;
 
