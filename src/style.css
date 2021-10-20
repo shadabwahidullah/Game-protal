@@ -13,6 +13,10 @@ p {
   margin-bottom: 0;
 }
 
+#game-list {
+  max-width: 100%;
+}
+
 .f-brown {
   color: rgb(141, 97, 44) !important;
 }

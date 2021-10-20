@@ -3,7 +3,7 @@ import fetch from 'cross-fetch';
 import './style.css';
 
 const key = '4367d242d87843ddb5e0a8cc46a359d5';
-const quantity = 30;
+const quantity = 32;
 let page = 1;
 const url = `https://api.rawg.io/api/games?key=${key}&page_size=${quantity}`;
 const involvmentUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
@@ -84,6 +84,13 @@ const createApp = async () => {
   }
 };
 
+const getLikes = async () => {
+  const response = await fetch(`${involvmentUrl + await createApp()}/likes/`).then((response) => response.json());
+  const data = await response;
+
+  console.log(data);
+};
+
 const updatePage = (url) => {
   const gameList = document.getElementById('game-list');
   gameList.innerHTML = '';
@@ -107,3 +114,4 @@ const previousPage = () => {
 previous.addEventListener('click', previousPage);
 next.addEventListener('click', nextPage);
 getData(url);
+getLikes();
