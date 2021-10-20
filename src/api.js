@@ -88,7 +88,9 @@ const populate = (data) => {
 const populateLikes = (data) => {
   data.forEach((element) => {
     const item = document.getElementById(element.item_id);
-    item.innerHTML = `Likes: ${element.likes}`;
+    if (item != null) {
+      item.innerHTML = `Likes: ${element.likes}`;
+    }
   });
 };
 
@@ -122,6 +124,7 @@ const updatePage = (url) => {
   const gameList = document.getElementById('game-list');
   gameList.innerHTML = '';
   getData(url);
+  getLikes();
 };
 
 const nextPage = () => {
