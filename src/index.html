@@ -14,8 +14,8 @@
 <body >
   <div class="wrapper">
     <nav class="navbar navbar-expand-lg navbar-light bg-light opacity-50">
-        <div class="container-fluid mx-5">
-          <div class='nav-logo me-3'></div>
+        <div class="container-fluid d-flex mx-5">
+          <a href='index.html' class='text-decoration-none'><div class='nav-logo me-3'></div></a>
           <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
@@ -28,6 +28,10 @@
     </nav>
     <section>
       <h2 class='my-2 text-center title'>Game List</h2>
+      <div class='navigation mx-5 d-flex justify-content-between'>
+        <button id='previous' class='btn fs-2 fw-bold f-brown'>Previous Page</button>
+        <button id='next' class='btn fs-2 fw-bold f-brown'>Next Page</button>
+      </div>
       <div id='game-list' class='grid row justify-content-center'>
 
       </div>

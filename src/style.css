@@ -9,6 +9,14 @@ body {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+p {
+  margin-bottom: 0;
+}
+
+.f-brown {
+  color: rgb(141, 97, 44) !important;
+}
+
 .nav-logo {
   height: 80px;
   width: 80px;
@@ -17,13 +25,24 @@ body {
   background-size: cover;
 }
 
+.align-middle {
+    margin-bottom: 0;
+}
+
+.nav-item {
+    background-color: white;
+    width: 25px;
+    padding: 6px 16px 0 8px;
+}
+
 .card-rating {
   font-size: 12px;
   font-weight: bold;
 }
 
 .nav-link,
-.text-muted {
+.text-muted,
+.nav-item {
   color: rgb(49, 32, 11) !important;
 }
 
@@ -55,8 +74,7 @@ body {
 }
 
 .card-img-top {
-  min-height: 200px;
-  max-height: 200px;
+  height: 200px;
 }
 
 .title {
