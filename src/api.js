@@ -1,13 +1,18 @@
+/* eslint-disable no-use-before-define */
 import fetch from 'cross-fetch';
 import './style.css';
 
 const key = '4367d242d87843ddb5e0a8cc46a359d5';
 const quantity = 30;
-var page = 1;
+let page = 1;
 const url = `https://api.rawg.io/api/games?key=${key}&page_size=${quantity}`;
-const involvmentUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/`;
+const involvmentUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
 const previous = document.getElementById('previous');
 const next = document.getElementById('next');
+
+const createLike = async (id) => {
+  console.log(`Like for item ${id} ${await fetch(`${involvmentUrl + await createApp()}/likes/`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ item_id: id }) }).then((response) => response.text())}`);
+};
 
 const populate = (data) => {
   const gameList = document.getElementById('game-list');
@@ -53,7 +58,7 @@ const populate = (data) => {
   const likebtns = document.querySelectorAll('a[id=like-btn]');
   likebtns.forEach((element) => {
     element.addEventListener('click', () => {
-        createLike(element.name);
+      createLike(element.name);
     });
   });
 };
@@ -63,45 +68,40 @@ const getData = async (url) => {
     const response = await fetch(url);
     const data = await response.json();
     populate(data.results);
-  } catch (data) {};
+    return data.results;
+  } catch (error) {
+    return error.text();
+  }
 };
 
 const createApp = async () => {
   try {
-    const response = await fetch(involvmentUrl, { method: 'POST'}).then((response) => response.text());
+    const response = await fetch(involvmentUrl, { method: 'POST' }).then((response) => response.text());
     const involvmentKey = await response;
     return involvmentKey;
-  } catch (involvmentKey) {};
-};
-
-const getLikes = async () => {
-  const response = await fetch(involvmentUrl + await createApp() + `/likes/`);
-  const data = await response;
-  console.log(data);
-};
-
-const createLike = async (id) => {
-  console.log(await fetch(involvmentUrl + await createApp() + `/likes/` , { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ item_id: id })}).then((response) => response.text()));
-};
-
-const nextPage = () => {
-    page += 1;
-    let newUrl = url + `&page=${page}`;
-    updatePage(newUrl);
-};
-
-const previousPage = () => {
-    if (page > 1) {
-        page -= 1;
-        let newUrl = url + `&page=${page}`;
-        updatePage(newUrl);
-    }
+  } catch (error) {
+    return error.text();
+  }
 };
 
 const updatePage = (url) => {
-    const gameList = document.getElementById('game-list');
-    gameList.innerHTML = '';
-    getData(url);
+  const gameList = document.getElementById('game-list');
+  gameList.innerHTML = '';
+  getData(url);
+};
+
+const nextPage = () => {
+  page += 1;
+  const newUrl = `${url}&page=${page}`;
+  updatePage(newUrl);
+};
+
+const previousPage = () => {
+  if (page > 1) {
+    page -= 1;
+    const newUrl = `${url}&page=${page}`;
+    updatePage(newUrl);
+  }
 };
 
 previous.addEventListener('click', previousPage);
