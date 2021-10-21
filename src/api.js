@@ -1,18 +1,22 @@
 /* eslint-disable no-use-before-define */
 import fetch from 'cross-fetch';
 import './style.css';
-import createModal from './modal';
+import createModal from './modal.js';
 
 const key = '4367d242d87843ddb5e0a8cc46a359d5';
 const quantity = 32;
 let page = 1;
 const url = `https://api.rawg.io/api/games?key=${key}&page_size=${quantity}`;
+
 const involvmentUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
 const previous = document.getElementById('previous');
 const next = document.getElementById('next');
+const involvmentKey = 'vAUByXh5uun5dFWwLARx';
+const count = document.getElementById('counter');
 
 const createLike = async (id) => {
-  console.log(`Like for item ${id} ${await fetch(`${involvmentUrl + await createApp()}/likes/`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ item_id: id }) }).then((response) => response.text())}`);
+  await fetch(`${involvmentUrl}${involvmentKey}/likes/`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ item_id: id }) }).then((response) => response);
+  getLikes();
 };
 
 const populate = (data) => {
@@ -25,9 +29,11 @@ const populate = (data) => {
     const likeButton = document.createElement('a');
     const commentButton = document.createElement('a');
     const rating = document.createElement('p');
+    const likes = document.createElement('p');
+    const rlcontainer = document.createElement('div');
 
     cardContainer.classList.add('card', 'card-size', 'm-3', 'col-lg-3', 'col-md-6', 'col-xs-12', 'shadow');
-    cardContainer.id = element.id;
+    cardContainer.id = 'game-container';
 
     imageContainer.src = element.background_image;
     imageContainer.classList.add('card-img-top', 'mt-3');
@@ -37,8 +43,14 @@ const populate = (data) => {
     cardTitle.innerHTML = element.name;
     cardTitle.classList.add('card-title', 'fs-5');
 
+    rlcontainer.classList.add('d-flex', 'justify-content-between');
+
     rating.innerHTML = `Rating: ${element.rating}/5.0`;
     rating.classList.add('card-rating', 'mb-2');
+
+    likes.classList.add('fw-bold', 'fs-10');
+    likes.innerHTML = 'Likes: 0';
+    likes.id = element.id;
 
     likeButton.classList.add('btn', 'btn-warning', 'fw-bold', 'fs-5', 'd-flex', 'justify-content-center', 'mb-2');
     likeButton.id = 'like-btn';
@@ -54,7 +66,9 @@ const populate = (data) => {
       createModal(e.target.id);
     });
 
-    bodyContainer.append(cardTitle, rating, likeButton, commentButton);
+    rlcontainer.append(rating, likes);
+
+    bodyContainer.append(cardTitle, rlcontainer, likeButton, commentButton);
 
     cardContainer.append(imageContainer, bodyContainer);
 
@@ -66,6 +80,27 @@ const populate = (data) => {
       createLike(element.name);
     });
   });
+  getLikes();
+  const games = document.querySelectorAll('div[id=game-container]');
+  counter(games);
+};
+
+const populateLikes = (data) => {
+  data.forEach((element) => {
+    const item = document.getElementById(element.item_id);
+    if (item != null) {
+      item.innerHTML = `Likes: ${element.likes}`;
+    }
+  });
+};
+
+const counter = (games) => {
+  let counter = 0;
+  games.forEach(() => {
+    counter += 1;
+  });
+  count.innerHTML = `Displaying ${counter} Games!`;
+  return counter;
 };
 
 const getData = async (url) => {
@@ -75,28 +110,21 @@ const getData = async (url) => {
     populate(data.results);
     return data.results;
   } catch (error) {
-    return error.text();
-  }
-};
-
-const createApp = async () => {
-  try {
-    const response = await fetch(involvmentUrl, { method: 'POST' }).then((response) => response.text());
-    const involvmentKey = await response;
-    return involvmentKey;
-  } catch (error) {
-    return error.text();
+    return error;
   }
 };
 
 const getLikes = async () => {
-
+  const response = await fetch(`${involvmentUrl}${involvmentKey}/likes/`).then((response) => response);
+  const data = await response.json();
+  populateLikes(data);
 };
 
 const updatePage = (url) => {
   const gameList = document.getElementById('game-list');
   gameList.innerHTML = '';
   getData(url);
+  getLikes();
 };
 
 const nextPage = () => {
@@ -116,4 +144,3 @@ const previousPage = () => {
 previous.addEventListener('click', previousPage);
 next.addEventListener('click', nextPage);
 getData(url);
-getLikes();
