@@ -32,7 +32,7 @@ async function createModal(id) {
   modalDetails.innerHTML = '';
 
   const modalTitle = document.createElement('h2');
-  modalTitle.classList.add('text-center', 'py-3','fw-bold','color');
+  modalTitle.classList.add('text-center', 'py-3', 'fw-bold', 'color');
   modalTitle.innerHTML = game.name_original;
 
   const modalGenre = document.createElement('p');
