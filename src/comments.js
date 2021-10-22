@@ -7,7 +7,7 @@ const commentBtn = document.getElementById('commentBtn');
 
 function createComment({ itemId, username, myComment }) {
   const comment = {
-    itemId,
+    "item_id":itemId,
     username,
     comment: myComment,
   };
