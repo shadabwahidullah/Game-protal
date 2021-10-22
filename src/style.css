@@ -76,6 +76,10 @@ p {
   color: rgb(49, 32, 11) !important;
 }
 
+.color {
+  color: rgb(49, 32, 11) !important;
+}
+
 .nav-link:hover {
   color: rgb(5, 3, 1) !important;
 }

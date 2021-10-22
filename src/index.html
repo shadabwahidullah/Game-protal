@@ -16,11 +16,20 @@
     <div class="modal-dialog modal-dialog-scrollable modal-xl modal-fullscreen-sm-down">
       <div class="modal-content">
         <button id="modalClose" type="button" class="btn-close align-self-end p-3" data-bs-dismiss="modal" aria-label="Close"></button>
-        <div class="container modal-body row justify-content-center px-5">
-          <div class="modal-body row justify-content-center px-5">
-            <img id="modalImage" src="#" class="modalImage align-self-center py-3" alt="">
-            <div id="modal-details" class="row">
-              <!-- The details retrieved from the API comes here -->
+        <div class="modal-body row justify-content-center px-5">
+          <img id="modalImage" src="#" class="modalImage align-self-center py-3" alt="">
+          <div id="modal-details" class="row">
+            <!-- The details retrieved from the API comes here -->
+          </div>
+          <div id="comments" class="px-5 fw-bold color">
+            <!-- The comments are added here -->
+          </div>
+          <form class="px-5" action="#">
+            <h4 class="text-center mt-5 fw-bold color">Add a comment</h4>
+            <div class="col-lg-6">
+              <input id="name" class="form-control my-2" type="text" name="name" placeholder="Your name" required>
+              <textarea id="insight" class="form-control my-2" name="insight" placeholder="Your insights" required></textarea>
+              <button id="commentBtn" class="btn btn-warning mt-3 mb-5" type="submit">Comment</button>
             </div>
             <div class="px-5">
               <h4 class="text-center my-5">Comments</h4>
