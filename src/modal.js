@@ -1,5 +1,3 @@
-import createComment from './comments';
-
 const key = '4367d242d87843ddb5e0a8cc46a359d5';
 const url = 'https://api.rawg.io/api/games';
 
