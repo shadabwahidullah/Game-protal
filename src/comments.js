@@ -39,11 +39,15 @@ async function createComment({ item_id, username, myComment }) {
   });
 }
 
+function countComments(comments) {
+  return comments.length;
+}
+
 function populateComments(comments) {
   const allComments = document.getElementById("comments");
   allComments.innerHTML = "";
   const commentsCount = document.createElement("h4");
-  commentsCount.classList.add("text-center", "mt-5", 'fw-bold', 'color');
+  commentsCount.classList.add("text-center", "mt-5", "fw-bold", "color");
   commentsCount.innerHTML = `Comments(${comments.length})`;
   allComments.append(commentsCount);
 
@@ -81,13 +85,13 @@ async function getComments(id) {
   const comUrl = url + "?item_id=" + id;
   const response = await fetch(comUrl).then(async (res) => {
     const temp = await res.json();
-    if (temp.length > 0) {
+    if (countComments(temp) > 0) {
       populateComments(temp);
     } else {
       const allComments = document.getElementById("comments");
       allComments.innerHTML = "";
       const commentsCount = document.createElement("h4");
-      commentsCount.classList.add("text-center", "mt-5", 'fw-bold', 'color');
+      commentsCount.classList.add("text-center", "mt-5", "fw-bold", "color");
       commentsCount.innerHTML = `Comments(0)`;
       allComments.append(commentsCount);
     }
