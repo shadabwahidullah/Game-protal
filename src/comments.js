@@ -1,3 +1,5 @@
+import countComments from "./countComments";
+
 const commentsKey = 'vAUByXh5uun5dFWwLARx';
 const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${commentsKey}/comments`;
 
@@ -18,10 +20,6 @@ function createComment({ itemId, username, myComment }) {
       'Content-type': 'application/json; charset=UTF-8',
     },
   });
-}
-
-function countComments(comments) {
-  return comments.length;
 }
 
 function populateComments(comments) {
