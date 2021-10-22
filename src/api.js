@@ -9,11 +9,11 @@ const quantity = 32;
 let page = 1;
 const url = `https://api.rawg.io/api/games?key=${key}&page_size=${quantity}`;
 
-const involvmentUrl =
-  "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/";
-const previous = document.getElementById("previous");
-const next = document.getElementById("next");
-const involvmentKey = "vAUByXh5uun5dFWwLARx";
+const involvmentUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
+const previous = document.getElementById('previous');
+const next = document.getElementById('next');
+const involvmentKey = 'vAUByXh5uun5dFWwLARx';
+const count = document.getElementById('counter');
 
 const createLike = async (id) => {
   await fetch(`${involvmentUrl}${involvmentKey}/likes/`, {
@@ -27,25 +27,18 @@ const createLike = async (id) => {
 const populate = (data) => {
   const gameList = document.getElementById("game-list");
   data.forEach((element) => {
-    const cardContainer = document.createElement("div");
-    const imageContainer = document.createElement("img");
-    const bodyContainer = document.createElement("div");
-    const cardTitle = document.createElement("h5");
-    const likeButton = document.createElement("a");
-    const commentButton = document.createElement("a");
-    const rating = document.createElement("p");
-    const likes = document.createElement("p");
-    const rlcontainer = document.createElement("div");
+    const cardContainer = document.createElement('div');
+    const imageContainer = document.createElement('img');
+    const bodyContainer = document.createElement('div');
+    const cardTitle = document.createElement('h5');
+    const likeButton = document.createElement('a');
+    const commentButton = document.createElement('a');
+    const rating = document.createElement('p');
+    const likes = document.createElement('p');
+    const rlcontainer = document.createElement('div');
 
-    cardContainer.classList.add(
-      "card",
-      "card-size",
-      "m-3",
-      "col-lg-3",
-      "col-md-6",
-      "col-xs-12",
-      "shadow"
-    );
+    cardContainer.classList.add('card', 'card-size', 'm-3', 'col-lg-3', 'col-md-6', 'col-xs-12', 'shadow');
+    cardContainer.id = 'game-container';
 
     imageContainer.src = element.background_image;
     imageContainer.classList.add("card-img-top", "mt-3");
@@ -107,6 +100,8 @@ const populate = (data) => {
     });
   });
   getLikes();
+  const games = document.querySelectorAll('div[id=game-container]');
+  counter(games);
 };
 
 const populateLikes = (data) => {
@@ -118,6 +113,11 @@ const populateLikes = (data) => {
   });
 };
 
+const counter = (games) => {
+  count.innerHTML = `Displaying ${games.length} Games!`;
+  return games.length;
+};
+
 const getData = async (url) => {
   try {
     const response = await fetch(url);
@@ -125,7 +125,7 @@ const getData = async (url) => {
     populate(data.results);
     return data.results;
   } catch (error) {
-    return error.text();
+    return error;
   }
 };
 
@@ -141,6 +141,7 @@ const updatePage = (url) => {
   const gameList = document.getElementById("game-list");
   gameList.innerHTML = "";
   getData(url);
+  getLikes();
 };
 
 const nextPage = () => {
@@ -157,6 +158,6 @@ const previousPage = () => {
   }
 };
 
-previous.addEventListener("click", previousPage);
-next.addEventListener("click", nextPage);
+previous.addEventListener('click', previousPage);
+next.addEventListener('click', nextPage);
 getData(url);

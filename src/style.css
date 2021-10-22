@@ -4,6 +4,22 @@
   src: url("/assets/fonts/burnstown\ dam.ttf") format("truetype");
 }
 
+@media only screen and (max-width: 524px) {
+  #navbarNav {
+    display: block !important;
+    text-align: center;
+    padding: 0;
+  }
+
+  #navbarNav > li {
+    padding: 0 !important;
+  }
+
+  #navbarTop {
+    text-align: center;
+  }
+}
+
 body {
   background-color: bisque;
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -15,6 +31,7 @@ p {
 
 #game-list {
   max-width: 100%;
+  margin: 0;
 }
 
 .f-brown {
@@ -36,7 +53,7 @@ p {
 .nav-item {
   background-color: white;
   width: 25px;
-  padding: 6px 16px 0 8px;
+  padding: 6px 0 0 8px;
 }
 
 .card-rating {
