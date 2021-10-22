@@ -1,4 +1,4 @@
-import countComments from "./countComments";
+import countComments from './countComments.js';
 
 const commentsKey = 'vAUByXh5uun5dFWwLARx';
 const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${commentsKey}/comments`;
