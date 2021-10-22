@@ -28,6 +28,7 @@ async function createModal(id) {
   const modalImage = document.getElementById('modalImage');
   modalImage.src = game.background_image;
   const modalDetails = document.getElementById('modal-details');
+  document.getElementsByTagName('form')[0].id = id;
   modalDetails.innerHTML = '';
 
   const modalTitle = document.createElement('h2');

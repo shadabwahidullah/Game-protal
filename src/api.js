@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
 import fetch from 'cross-fetch';
 import './style.css';
-import createModal from './modal';
+import createModal from './modal.js';
 
 const key = '4367d242d87843ddb5e0a8cc46a359d5';
 const quantity = 32;
@@ -12,6 +12,7 @@ const involvmentUrl = 'https://us-central1-involvement-api.cloudfunctions.net/ca
 const previous = document.getElementById('previous');
 const next = document.getElementById('next');
 const involvmentKey = 'vAUByXh5uun5dFWwLARx';
+const count = document.getElementById('counter');
 
 const createLike = async (id) => {
   await fetch(`${involvmentUrl}${involvmentKey}/likes/`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ item_id: id }) }).then((response) => response);
@@ -32,6 +33,7 @@ const populate = (data) => {
     const rlcontainer = document.createElement('div');
 
     cardContainer.classList.add('card', 'card-size', 'm-3', 'col-lg-3', 'col-md-6', 'col-xs-12', 'shadow');
+    cardContainer.id = 'game-container';
 
     imageContainer.src = element.background_image;
     imageContainer.classList.add('card-img-top', 'mt-3');
@@ -79,13 +81,22 @@ const populate = (data) => {
     });
   });
   getLikes();
+  const games = document.querySelectorAll('div[id=game-container]');
+  counter(games);
 };
 
 const populateLikes = (data) => {
   data.forEach((element) => {
     const item = document.getElementById(element.item_id);
-    item.innerHTML = `Likes: ${element.likes}`;
+    if (item != null) {
+      item.innerHTML = `Likes: ${element.likes}`;
+    }
   });
+};
+
+const counter = (games) => {
+  count.innerHTML = `Displaying ${games.length} Games!`;
+  return games.length;
 };
 
 const getData = async (url) => {
@@ -95,7 +106,7 @@ const getData = async (url) => {
     populate(data.results);
     return data.results;
   } catch (error) {
-    return error.text();
+    return error;
   }
 };
 
@@ -109,6 +120,7 @@ const updatePage = (url) => {
   const gameList = document.getElementById('game-list');
   gameList.innerHTML = '';
   getData(url);
+  getLikes();
 };
 
 const nextPage = () => {
