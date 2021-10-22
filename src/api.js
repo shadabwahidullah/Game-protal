@@ -95,12 +95,8 @@ const populateLikes = (data) => {
 };
 
 const counter = (games) => {
-  let counter = 0;
-  games.forEach(() => {
-    counter += 1;
-  });
-  count.innerHTML = `Displaying ${counter} Games!`;
-  return counter;
+  count.innerHTML = `Displaying ${games.length} Games!`;
+  return games.length;
 };
 
 const getData = async (url) => {
