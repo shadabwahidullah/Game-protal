@@ -10,44 +10,39 @@
       integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
       crossorigin="anonymous"
     />
-<script defer src="api.js"></script><script defer src="modal.js"></script></head>
+<script defer src="api.js"></script><script defer src="modal.js"></script><script defer src="comments.js"></script><script defer src="countComments.js"></script><script defer src="countItems.js"></script></head>
 <body id="body">
   <div class="modal fade show" id="scrollableModal" tabindex="-1" aria-modal="true" role="dialog">
     <div class="modal-dialog modal-dialog-scrollable modal-xl modal-fullscreen-sm-down">
       <div class="modal-content">
         <button id="modalClose" type="button" class="btn-close align-self-end p-3" data-bs-dismiss="modal" aria-label="Close"></button>
-        <div class="container modal-body row justify-content-center px-5">
-          <div class="modal-body row justify-content-center px-5">
-            <img id="modalImage" src="#" class="modalImage align-self-center py-3" alt="">
-            <div id="modal-details" class="row">
-              <!-- The details retrieved from the API comes here -->
-            </div>
-            <div class="px-5">
-              <h4 class="text-center my-5">Comments</h4>
-              <p>03/11/21 Alex: I'd love to buy it</p>
-              <p>03/11/21 Alex: I'd love to buy it</p>
-              <p>03/11/21 Alex: I'd love to buy it</p>
-            </div>
-            <form class="px-5" action="#">
-              <h4 class="text-center my-5">Add a comment</h4>
-              <div class="col-lg-6">
-                <input id="name" class="form-control my-2" type="text" name="name" placeholder="Your name">
-                <textarea id="insight" class="form-control my-2" name="insight" placeholder="Your insights"></textarea>
-                <button class="btn btn-warning mt-3 mb-5" type="submit">Comment</button>
-              </div>
-            </form>
+        <div class="modal-body row justify-content-center px-5">
+          <img id="modalImage" src="#" class="modalImage align-self-center py-3" alt="">
+          <div id="modal-details" class="row">
+            <!-- The details retrieved from the API comes here -->
           </div>
+          <div id="comments" class="px-5 fw-bold color">
+            <!-- The comments are added here -->
+          </div>
+          <form class="px-5" action="#">
+            <h4 class="text-center mt-5 fw-bold color">Add a comment</h4>
+            <div class="col-lg-6">
+              <input id="name" class="form-control my-2" type="text" name="name" placeholder="Your name" required>
+              <textarea id="insight" class="form-control my-2" name="insight" placeholder="Your insights" required></textarea>
+              <button id="commentBtn" class="btn btn-warning mt-3 mb-5" type="submit">Comment</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
   <div class="wrapper">
     <nav class="navbar navbar-expand-lg navbar-light bg-light opacity-50">
-        <div class="container-fluid d-flex mx-5">
+        <div class="container-fluid d-flex justify-content-center mx-5" id='navbarTop'>
           <a href='index.html' class='text-decoration-none'><div class='nav-logo me-3'></div></a>
           <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNav">
             <ul class="navbar-nav">
-              <li class="nav-item">
+              <li class="nav-item w-100">
                 <a class="nav-link fw-bold fs-2 active me-3" aria-current="page" href="index.html">Games</a>
               </li>
             </ul>
