@@ -21,23 +21,31 @@ When you click on comment a modal pops up which looks like following screenshot.
 
 ## Getting Started
 
-On Github, on the main page of the Gameportal repository, click the Code button and copy "Clone with HTTPS" by clicking the copy icon.
+1 - On Github, on the main page of the Gameportal repository, click the Code button and copy "Clone with HTTPS" by clicking the copy icon.
 In your terminal, enter a git clone and past the link that you copied from the repository, and press the   Enter
 (e.g. git clone https://github.com/jonathastavares/JavaScript-Capstone.git).
 
-To get a local copy up and running follow these steps.
+* To get a local copy up and running follow these steps.
 
-open your terminal and clone the project running 
+2 - open your terminal and clone the project running 
 
 `git clone https://github.com/jonathastavares/JavaScript-Capstone.git`
 
-install or update your npm running
+3 - install or update your npm running
 
 `npm install` or if you have it installed already `npm update`
 
-start your local server and build project using
+4 - start your local server and build project using
 
 `npm start`
+
+## Testing
+
+We use Jest library to test our code.
+
+You can run those tests locally if you follow the steps above from 1 to 3, and then run:
+
+`npm test`
 
 ## Live Demo
 

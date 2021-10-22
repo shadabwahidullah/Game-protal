@@ -7,7 +7,7 @@ const name = document.getElementById('name');
 const insight = document.getElementById('insight');
 const commentBtn = document.getElementById('commentBtn');
 
-function createComment({ itemId, username, myComment }) {
+async function createComment({ itemId, username, myComment }) {
   const comment = {
     item_id: itemId,
     username,
