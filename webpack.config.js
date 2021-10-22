@@ -5,6 +5,9 @@ module.exports = {
   entry: {
     api: './src/api.js',
     modal: './src/modal.js',
+    comments: './src/comments.js',
+    countComments: './src/countComments.js',
+    countItems: './src/countItems.js',
   },
   devServer: {
     static: './dist',

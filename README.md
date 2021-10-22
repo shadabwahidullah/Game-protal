@@ -39,6 +39,14 @@ start your local server and build project using
 
 `npm start`
 
+## Live Demo
+
+- Check out the [Live Demo](https://raw.githack.com/jonathastavares/JavaScript-Capstone/development/dist/index.html)
+
+## Video Presentation
+
+- Check out the [Presentation Video](https://www.youtube.com/watch?v=YyjIN8lhB1w)
+
 ## Authors
 
 👤 **Wahidullah Shadab**
