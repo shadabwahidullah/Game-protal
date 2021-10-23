@@ -10,6 +10,15 @@ When you click on comment a modal pops up which looks like following screenshot.
 
 ![image](https://user-images.githubusercontent.com/51750930/138415418-96ded9c0-6fbe-4e99-995d-b449ba61ee48.png)
 
+
+## Live Demo
+
+- Check out the [Live Demo](https://shadabwahidullah.github.io/Game-protal/dist/)
+
+## Video Presentation
+
+- Check out the [Presentation Video](https://www.youtube.com/watch?v=YyjIN8lhB1w)
+
 ## Built With
 
 - HTML 
@@ -46,14 +55,6 @@ We use Jest library to test our code.
 You can run those tests locally if you follow the steps above from 1 to 3, and then run:
 
 `npm test`
-
-## Live Demo
-
-- Check out the [Live Demo](https://shadabwahidullah.github.io/Game-protal/dist/)
-
-## Video Presentation
-
-- Check out the [Presentation Video](https://www.youtube.com/watch?v=YyjIN8lhB1w)
 
 ## Authors
 
