@@ -4,6 +4,8 @@
 
 > The Gameportal is a webpage that provides you a list of games. You can like games or add a comment about them. 
 
+https://user-images.githubusercontent.com/51750930/138566063-27dd581f-a5e6-4eec-b708-842d10270d10.mp4
+
 ![image](https://user-images.githubusercontent.com/51750930/138415049-82be2524-1868-4588-b048-7f0b4ad7c2c5.png)
 
 When you click on comment a modal pops up which looks like following screenshot. It will give you more detail about the game.
