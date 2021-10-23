@@ -1,0 +1,118 @@
+/* stylelint-disable font-family-no-missing-generic-family-keyword */
+@font-face {
+  font-family: "Tema";
+  src: url("/assets/fonts/burnstown\ dam.ttf") format("truetype");
+}
+
+@media only screen and (max-width: 524px) {
+  #navbarNav {
+    display: block !important;
+    text-align: center;
+    padding: 0;
+  }
+
+  #navbarNav > li {
+    padding: 0 !important;
+  }
+
+  #navbarTop {
+    text-align: center;
+  }
+}
+
+body {
+  background-color: bisque;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+#game-list {
+  max-width: 100%;
+  margin: 0;
+}
+
+.f-brown {
+  color: rgb(141, 97, 44) !important;
+}
+
+.nav-logo {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-image: url('../assets/images/logo.jpg');
+  background-size: cover;
+}
+
+.align-middle {
+  margin-bottom: 0;
+}
+
+.nav-item {
+  background-color: white;
+  width: 25px;
+  padding: 6px 0 0 8px;
+}
+
+.card-rating {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#scrollableModal {
+  background: rgba(255, 228, 196, 0.8);
+}
+
+.modalImage {
+  max-width: 600px;
+  height: auto;
+}
+
+.nav-link,
+.text-muted,
+.nav-item {
+  color: rgb(49, 32, 11) !important;
+}
+
+.color {
+  color: rgb(49, 32, 11) !important;
+}
+
+.nav-link:hover {
+  color: rgb(5, 3, 1) !important;
+}
+
+.wrapper {
+  min-height: calc(100vh - 80px);
+}
+
+.footer-icons li a svg {
+  width: 30px;
+  height: 30px;
+}
+
+.card-size {
+  width: 22rem;
+}
+
+.btn {
+  background-color: bisque;
+  color: rgb(49, 32, 11);
+}
+
+.btn:hover {
+  background-color: rgb(235, 200, 158);
+  color: rgb(32, 20, 6);
+}
+
+.card-img-top {
+  height: 200px;
+}
+
+.title {
+  color: rgb(119, 74, 19);
+  font-family: 'Tema';
+  font-size: 6em;
+}
