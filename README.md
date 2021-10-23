@@ -23,7 +23,7 @@ When you click on comment a modal pops up which looks like following screenshot.
 
 1 - On Github, on the main page of the Gameportal repository, click the Code button and copy "Clone with HTTPS" by clicking the copy icon.
 In your terminal, enter a git clone and past the link that you copied from the repository, and press the   Enter
-(e.g. git clone https://github.com/jonathastavares/JavaScript-Capstone.git).
+(e.g. git clone https://github.com/shadabwahidullah/Game-protal.git).
 
 * To get a local copy up and running follow these steps.
 
@@ -49,7 +49,7 @@ You can run those tests locally if you follow the steps above from 1 to 3, and t
 
 ## Live Demo
 
-- Check out the [Live Demo](https://raw.githack.com/jonathastavares/JavaScript-Capstone/development/dist/index.html)
+- Check out the [Live Demo](https://shadabwahidullah.github.io/Game-protal/dist/)
 
 ## Video Presentation
 
