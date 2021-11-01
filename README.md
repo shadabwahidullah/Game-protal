@@ -44,7 +44,11 @@ In your terminal, enter a git clone and past the link that you copied from the r
 
 3 - install or update your npm running
 
-`npm install` or if you have it installed already `npm update`
+`npm install` 
+
+or if you have it installed already 
+
+`npm update`
 
 4 - start your local server and build project using
 
